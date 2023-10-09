@@ -1,23 +1,21 @@
-// Populate the calendar with days
 function generateCalendar(year, month) {
     const daysInMonth = new Date(year, month, 0).getDate();
     const firstDay = new Date(year, month - 1, 1).getDay();
     const monthName = new Intl.DateTimeFormat('de-DE', { month: 'long' }).format(new Date(year, month - 1, 1));
 
-    const dayNames = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
+    const calendarDiv = $('.calendar')[0];
 
-    const calendarDiv = document.querySelector('.calendar');
-
-    const calendarTitleDiv = document.querySelector('.calendar-title');
+    const calendarTitleDiv = document.querySelector('.title-text');
     calendarTitleDiv.textContent = `${monthName} ${year}`;
 
     // Display day names
-    dayNames.forEach(dayName => {
-        const dayNameDiv = document.createElement('div');
+    weekdays.forEach(weekName => {
+        const dayName = weekName.slice(0, 2);
+        const dayNameDiv = $('+');
         dayNameDiv.textContent = dayName;
         dayNameDiv.classList.add('day', 'day-name');
         calendarDiv.appendChild(dayNameDiv);
-    });
+    }); 
 
     let wrapDate = 0;
     let firstWrapDate = 0;
@@ -69,8 +67,8 @@ function generateCalendar(year, month) {
         }
     }
 }
-const inputYear = prompt('Enter the year (e.g., 2023):');
-const inputMonth = prompt('Enter the month (1-12):');
+let inputYear = new Date().getFullYear();
+let inputMonth = new Date().getMonth() + 1;
 
 // Convert the input to numbers
 const year = parseInt(inputYear);
@@ -83,3 +81,6 @@ if (!isNaN(year) && !isNaN(month) && month >= 1 && month <= 12) {
 } else {
     console.error('Invalid input. Please enter a valid year and month.');
 }
+
+
+// EventListeners

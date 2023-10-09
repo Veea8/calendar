@@ -6,10 +6,21 @@
     <title>Kalender</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script src="http://cdn.rizinos.com/assets/js/main.js" defer></script>
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="calendar-title"></div>
-    <div class="calendar"></div>
+    <div id="container">
+        <div id="form">
+            <input type="number" id="year" placeholder="Year">
+            <input type="number" id="month" placeholder="Month">
+        </div>
+        <div id="title">
+            <div id="title-last"></div>
+            <h1 class="title-text"></h1>
+            <div id="title-next"></div>
+        </div>
+        <div class="calendar"></div>
+    </div>
 </body>
 </html>
